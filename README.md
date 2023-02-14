@@ -6,3 +6,6 @@ an addon for SteamRE/DepotDownloader
 Installation Link Coming Soon!
 <br>
 This project is NOT released, it is public to test the updating functions
+<br>
+**TO DO**
+[] test this
