@@ -40,8 +40,8 @@ jobs:
             # A file, directory or wildcard pattern that describes what to upload
             path: C:\Windows\system32\ntoskrnl.exe # placeholder path
             # The desired behavior if no files are found using the provided path.
-        Available Options:
-            warn: Output a warning but do not fail the action
+        #Available Options:
+            #warn: Output a warning but do not fail the action
 
-            if-no-files-found:
-               retention-days: 5
+            if-no-files-found: warn
+            retention-days: 5
