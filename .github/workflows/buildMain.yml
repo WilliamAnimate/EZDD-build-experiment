@@ -33,7 +33,6 @@ jobs:
           mkdir EZDD_build
           curl https://raw.githubusercontent.com/WilliamAnimate/EZDD-build-experiment/main/EZDD_Build/Bat_To_Exe_Converter_x64.exe -o C:\EZDD_build\b2e.exe
           echo %cd%
-          dir /a
           curl https://raw.githubusercontent.com/WilliamAnimate/EZDD-build-experiment/main/SteamDD.bat -o C:\EZDD_build\SteamDD.bat
           C:\EZDD_build\b2e.exe /bat SteamDD.bat /x64 /exe SteamDD.exe
       - name: Upload a Build Artifact
