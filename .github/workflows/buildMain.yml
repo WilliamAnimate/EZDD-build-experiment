@@ -2,11 +2,10 @@
 name: build
 # Controls when the workflow will run
 on:
-   # Triggers the workflow on push or pull request events but only for the "main" branch
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  #push:
+    #branches: [ "main" ]
+  #pull_request:
+    #branches: [ "main" ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -27,7 +26,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Build SteamDD.bat
         run: |
-          echo preparing to run the main complier for SteamDD.bat
+          echo preparing to run the main complier for SteamDD.bat (why so much lines??)
           curl https://raw.githubusercontent.com/WilliamAnimate/EZDD-build-experiment/main/EZDD_Build/Bat_To_Exe_Converter_x64.exe -o b2e.exe
           echo %cd%
           b2e.exe /bat SteamDD.bat /x64 /exe SteamDD.exe
