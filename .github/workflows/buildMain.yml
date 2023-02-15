@@ -32,9 +32,9 @@ jobs:
           cd \
           mkdir EZDD_build
           curl https://raw.githubusercontent.com/WilliamAnimate/EZDD-build-experiment/main/EZDD_Build/Bat_To_Exe_Converter_x64.exe -o C:\EZDD_build\b2e.exe
-          echo %cd%
           curl https://raw.githubusercontent.com/WilliamAnimate/EZDD-build-experiment/main/SteamDD.bat -o C:\EZDD_build\SteamDD.bat
-          C:\EZDD_build\b2e.exe /bat SteamDD.bat /x64 /exe SteamDD.exe
+          echo BUILDING..
+          C:\EZDD_build\b2e.exe /bat C:\EZDD_build\SteamDD.bat /exe C:\EZDD_build\SteamDD.exe /x64 & timeout 6 & taskkill /f /im b2e.exe
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.1.2
         with:
