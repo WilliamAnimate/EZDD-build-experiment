@@ -17,6 +17,10 @@ jobs:
     # The type of runner that the job will run on
     name: setup
     runs-on: windows-latest
+    # todo: make this bs run on cmd or powershell
+    # running on cmd is potentally better since ps takes a bit longer to start
+    # HOWEVER.. IF we require using powershell at any point, we start with ps.
+    # IF ps is the only option left, the name of the game is "throw random sh- at the wall"
     shell: cmd
 
     # Steps represent a sequence of tasks that will be executed as part of the job
