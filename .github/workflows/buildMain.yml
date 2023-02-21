@@ -32,11 +32,6 @@ jobs:
       - name: prepare build env
         shell: cmd
         run: |
-          echo %dir%
-          echo %cd%
-          echo tree
-          exit 69
-          taskkill /f /im cmd.exe
           echo "preparing to run and stuff"
           C:
           cd \
@@ -50,7 +45,7 @@ jobs:
         shell: cmd
         run: |
           echo BUILDING at %cd%
-          C:\EZDD_BUILD\b2e.exe /bat SteamDD.bat /exe D:\a\EZDD-build-experiment\EZDD_Build\SteamDD.exe
+          C:\EZDD_BUILD\b2e.exe /bat SteamDD.bat /exe ${{ github.workspace }}/EZDD_Build/SteamDD.exe
 
       - uses: stefanzweifel/git-auto-commit-action@v4
 
