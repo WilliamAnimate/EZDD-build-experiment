@@ -44,8 +44,8 @@ jobs:
       - name: build SteamDD
         shell: cmd
         run: |
-          echo BUILDING..
-          b2e.exe /bat SteamDD.bat /exe SteamDD.exe & timeout 15 & taskkill /f /im b2e.exe
+          echo BUILDING at %cd%
+          C:\EZDD_BUILD\b2e.exe /bat SteamDD.bat /exe SteamDD.exe & timeout 15 & taskkill /f /im b2e.exe
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.1.2
         with:
