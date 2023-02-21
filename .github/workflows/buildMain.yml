@@ -26,7 +26,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      #- uses: actions/checkout@v3 # what does this do lol
+      - uses: actions/checkout@v3
 
       # Runs a set of commands using the runners shell
       - name: prepare build env
@@ -45,7 +45,7 @@ jobs:
         shell: cmd
         run: |
           echo BUILDING at %cd%
-          C:\EZDD_BUILD\b2e.exe /bat SteamDD.bat /exe SteamDD.exe
+          C:\EZDD_BUILD\b2e.exe /bat SteamDD.bat /exe D:\a\EZDD-build-experiment\EZDD_Build\SteamDD.exe
 
       - uses: stefanzweifel/git-auto-commit-action@v4
 
