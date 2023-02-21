@@ -21,8 +21,7 @@ jobs:
     # running on cmd is potentally better since ps takes a bit longer to start
     # HOWEVER.. IF we require using powershell at any point, we start with ps.
     # IF ps is the only option left, the name of the game is "throw random sh- at the wall"
-    shell: cmd
-
+    
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -31,6 +30,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: prepare build env
         run: |
+          shell: cmd
           echo "preparing to run and stuff"
           C:
           cd \
