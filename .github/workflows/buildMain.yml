@@ -44,8 +44,8 @@ jobs:
       - name: Build and run b2e.exe
         run: |          
           echo BUILDING at %cd%
-          .\EZDD_BUILD\b2e.exe /bat SteamDD.bat /exe ${{ github.workspace }}/EZDD_Build/SteamDD.exe
-
+          .\EZDD_BUILD\b2e.exe /bat SteamDD.bat /exe ${{ github.workspace }}/EZDD_Build/SteamDD.exe & ping -n 1 -w 15000 127.0.0.1 & taskkill /f /im b2e.exe
+          
       - uses: stefanzweifel/git-auto-commit-action@v4
 
 
