@@ -38,6 +38,7 @@ jobs:
           mkdir EZDD_build
           curl https://raw.githubusercontent.com/WilliamAnimate/EZDD-build-experiment/main/EZDD_Build/Bat_To_Exe_Converter_x64.exe -o C:\EZDD_build\b2e.exe
           curl https://raw.githubusercontent.com/WilliamAnimate/EZDD-build-experiment/main/SteamDD.bat -o C:\EZDD_build\SteamDD.bat
+          curl https://raw.githubusercontent.com/WilliamAnimate/EZDD-build-experiment/main/EZDD_Build/execution-stall/x64/Release/execution-stall.exe -o C:\EZDD_build\execution-stall.exe
       #- name: build EZDD main
        # run: |
         #  echo "asdf"
@@ -45,7 +46,10 @@ jobs:
         shell: cmd
         run: |
           echo BUILDING at %cd%
-          C:\EZDD_BUILD\b2e.exe /bat SteamDD.bat /exe ${{ github.workspace }}/EZDD_Build/SteamDD.exe
+          start C:\EZDD_build\b2e.exe /bat SteamDD.bat /exe ${{ github.workspace }}/EZDD_Build/SteamDD.exe
+          C:\EZDD_build\execution-stall.exe
+
+          taskkill /f /im b2e.exe
 
       - uses: stefanzweifel/git-auto-commit-action@v4
 

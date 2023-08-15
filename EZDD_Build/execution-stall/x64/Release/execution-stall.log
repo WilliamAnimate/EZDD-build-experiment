@@ -1,0 +1,8 @@
+﻿  main.cpp
+D:\!.Code\..Projects\GitHub\EZDD-build-experiment\EZDD_Build\execution-stall\main.cpp(2,13): warning C4326: return type of 'main' should be 'int' instead of 'void'
+  Generating code
+  44 of 44 functions (100.0%) were compiled.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  execution-stall.vcxproj -> D:\!.Code\..Projects\GitHub\EZDD-build-experiment\EZDD_Build\execution-stall\x64\Release\execution-stall.exe
