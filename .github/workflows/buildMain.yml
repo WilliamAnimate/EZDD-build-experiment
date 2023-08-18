@@ -1,34 +1,20 @@
-# This is a basic workflow to help you get started with Actions
 name: build
-# Controls when the workflow will run
-on:
-  #push:
-    #branches: [ "main" ]
-  #pull_request:
-    #branches: [ "main" ]
 
-  # Allows you to run this workflow manually from the Actions tab
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
     name: setup
     runs-on: windows-latest
     
-    # todo: make this bs run on cmd or powershell
-    # running on cmd is potentally better since ps takes a bit longer to start
-    # HOWEVER.. IF we require using powershell at any point, we start with ps.
-    # IF ps is the only option left, the name of the game is "throw random sh- at the wall"
-    
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
-
-      # Runs a set of commands using the runners shell
+      - uses: actions/checkout@v2
+      
       - name: prepare build env
         shell: cmd
         run: |
@@ -39,18 +25,13 @@ jobs:
           curl https://raw.githubusercontent.com/WilliamAnimate/EZDD-build-experiment/main/EZDD_Build/Bat_To_Exe_Converter_x64.exe -o C:\EZDD_build\b2e.exe
           curl https://raw.githubusercontent.com/WilliamAnimate/EZDD-build-experiment/main/SteamDD.bat -o C:\EZDD_build\SteamDD.bat
           curl https://raw.githubusercontent.com/WilliamAnimate/EZDD-build-experiment/main/EZDD_Build/execution-stall/x64/Release/execution-stall.exe -o C:\EZDD_build\execution-stall.exe
-      #- name: build EZDD main
-       # run: |
-        #  echo "asdf"
+      
       - name: build SteamDD
         shell: cmd
         run: |
           echo BUILDING at %cd%
           start C:\EZDD_build\b2e.exe /bat SteamDD.bat /exe ${{ github.workspace }}/EZDD_Build/SteamDD.exe
           C:\EZDD_build\execution-stall.exe
-
           taskkill /f /im b2e.exe
-
+      
       - uses: stefanzweifel/git-auto-commit-action@v4
-
-
